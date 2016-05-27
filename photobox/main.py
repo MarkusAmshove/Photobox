@@ -2,18 +2,20 @@ import pygame
 import time
 import os
 import Colors
+import SwitchState
 from photoslideshow import Photoslideshow
 
 
 class Photobox():
 
-    def __init__(self, windowsize, photofolder, camera):
+    def __init__(self, windowsize, photofolder, camera, switch):
         pygame.init()
         self.windowsize = windowsize
         self.photofolder = photofolder
         self.screen = pygame.display.set_mode(self.windowsize, pygame.FULLSCREEN)
         self.clock = pygame.time.Clock()
         self.camera = camera
+        self.switch = switch
         pygame.mouse.set_visible(0)
 
     def start(self):
@@ -49,22 +51,22 @@ class Photobox():
         self.updatescreen()
 
     def handleevents(self):
-        events = pygame.event.get()
-        if len(events) == 0:
-            return
-        event = events[0]
-        if event.type == pygame.KEYDOWN:
-            self.handlekeyevent(event.key)
-        pygame.event.clear()
-
-    def handlekeyevent(self, key):
-        if key == pygame.K_ESCAPE:
+        switchstate = self.switch.get_switch_state()
+        if switchstate == SwitchState.SHUTDOWN:
             os.system("sudo shutdown now -h")
             exit(0)
-        if key == pygame.K_RETURN:
+        if switchstate == SwitchState.EXIT:
+            exit(0)
+        if switchstate == SwitchState.TRIGGER:
             self.takenewphoto()
-        if key == pygame.K_F4:
-            exit(1)
+
+        # events = pygame.event.get()
+        # if len(events) == 0:
+        #     return
+        # event = events[0]
+        # if event.type == pygame.KEYDOWN:
+        #     self.handlekeyevent(event.key)
+        # pygame.event.clear()
 
     def takenewphoto(self):
         start = time.clock()

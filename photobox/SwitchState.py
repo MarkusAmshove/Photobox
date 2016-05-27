@@ -1,0 +1,4 @@
+NONE = -1
+TRIGGER = 0
+SHUTDOWN = 1
+EXIT = 2
