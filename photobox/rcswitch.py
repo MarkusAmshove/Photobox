@@ -1,4 +1,5 @@
 from pi_switch import RCSwitchReceiver
+from switch import Switch
 import SwitchState
 
 
@@ -13,8 +14,8 @@ class RCSwitch(Switch):
 
     def get_switch_state(self):
         if self.receiver.available():
-            value = receiver.getReceivedValue()
-            receiver.resetAvailable()
+            value = self.receiver.getReceivedValue()
+            self.receiver.resetAvailable()
             return {
                 self.triggervalue: SwitchState.TRIGGER,
                 self.shutdownvalue: SwitchState.SHUTDOWN,
