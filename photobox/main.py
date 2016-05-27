@@ -58,6 +58,7 @@ class Photobox():
             exit(0)
         if switchstate == SwitchState.TRIGGER:
             self.takenewphoto()
+            self.slideshow.reset_timer()
 
         # events = pygame.event.get()
         # if len(events) == 0:

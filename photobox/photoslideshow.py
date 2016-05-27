@@ -33,3 +33,6 @@ class Photoslideshow():
 
     def get_seconds(self):
         return time.localtime().tm_sec
+
+    def reset_timer(self):
+        lastchange = self.get_seconds()
