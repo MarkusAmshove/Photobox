@@ -1,8 +1,8 @@
 import pygame
 import time
 import os
-import ui.Colors
-from ui.photoslideshow import Photoslideshow
+import Colors
+from photoslideshow import Photoslideshow
 
 
 class Photobox():

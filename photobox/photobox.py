@@ -1,16 +1,9 @@
 from os.path import expanduser
 
-from core.photofolders import Photofolder
-from filesystem.folder import RealFolder
-from core.gphotocamera import Gphoto
-from core.photofolders import Photofolder
-from ui.main import Photobox
-
-
-# from photobox.core.photofolder import Photofolder
-# from photobox.filesystem.folder import RealFolder
-# from photobox.core.gphotocamera import Gphoto
-# from photobox.ui.main import Photobox
+from photofolder import Photofolder
+from folder import RealFolder
+from gphotocamera import Gphoto
+from main import Photobox
 
 ##########
 # config #

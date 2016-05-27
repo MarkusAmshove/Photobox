@@ -1,5 +1,5 @@
 import subprocess
-import core.camera
+import camera
 from subprocess import Popen, PIPE
 
 

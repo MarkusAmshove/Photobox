@@ -1,4 +1,4 @@
-from filesystem.folder import Folder
+from folder import Folder
 
 
 class Photofolder():

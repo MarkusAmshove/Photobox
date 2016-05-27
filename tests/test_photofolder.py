@@ -1,6 +1,7 @@
+from context import photobox
 from unittest import TestCase
-from photobox.core.photofolders import Photofolder
-from photobox.filesystem.folder import Folder
+from photobox.photofolder import Photofolder
+from photobox.folder import Folder
 
 
 class MockFolder(Folder):
