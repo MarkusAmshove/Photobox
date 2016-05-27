@@ -24,7 +24,6 @@ class Photobox():
             self.clearscreen()
             slideshow.shownextphoto()
             self.handleevents()
-            time.sleep(2)
 
     def showphoto(self, path):
         self.clearscreen()

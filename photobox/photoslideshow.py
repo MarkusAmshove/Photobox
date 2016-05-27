@@ -1,4 +1,5 @@
 import random
+import time
 
 
 class Photoslideshow():
@@ -6,8 +7,14 @@ class Photoslideshow():
         self.photobox = photobox
         self.nextPhotoNumber = 1
         self.lastRandomIndex = -1
+        self.lastchange = time.localtime().tm_sec
 
     def shownextphoto(self):
+        currentseconds = self.get_seconds()
+        endseconds = (self.lastchange + 3) % 60
+        if currentseconds != endseconds:
+            return
+        self.lastchange = self.get_seconds()
         self.shownextphoto_byorder()
 
     def shownextphoto_random(self):
@@ -23,3 +30,6 @@ class Photoslideshow():
         nextPhoto = self.photobox.photofolder.getphotobynumber(self.nextPhotoNumber)
         self.photobox.showphoto(nextPhoto)
         self.nextPhotoNumber += 1
+
+    def get_seconds(self):
+        return time.localtime().tm_sec
