@@ -5,6 +5,7 @@ from folder import RealFolder
 from gphotocamera import Gphoto
 from main import Photobox
 from switch import KeyboardSwitch
+# from rcswitch import RCSwitch
 
 ##########
 # config #
