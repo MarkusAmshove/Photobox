@@ -14,7 +14,7 @@ photodirectory = '/var/www/html/'
 windowwidth = 1024
 windowheight = 768
 camera = Gphoto()
-# switch = RCSwitch("TRIGGER", "SHUTDOWN", "EXIT")
+# switch = RCSwitch(iTRIGGER", iSHUTDOWN, iEXIT)
 switch = KeyboardSwitch()
 ##########
 filesystemFolder = RealFolder(photodirectory)
