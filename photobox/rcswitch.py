@@ -14,6 +14,7 @@ class RCSwitch(Switch):
     def get_switch_state(self):
         if self.receiver.available():
             value = receiver.getReceivedValue()
+            receiver.resetAvailable()
             return {
                 self.triggervalue: SwitchState.TRIGGER,
                 self.shutdownvalue: SwitchState.SHUTDOWN,
