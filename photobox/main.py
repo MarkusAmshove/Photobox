@@ -24,6 +24,17 @@ class Photobox():
             self.clearscreen()
             slideshow.shownextphoto()
             self.handleevents()
+            self.exit_if_needed()
+
+    def exit_if_needed(self):
+        events = pygame.event.get()
+        if len(events) == 0:
+            return
+        event = events[0]
+        if event.type == pygame.KEYDOWN:
+            key = event.key
+            if key == pygame.K_ESCAPE:
+                exit()
 
     def showphoto(self, path):
         self.clearscreen()
