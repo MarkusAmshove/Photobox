@@ -13,7 +13,7 @@ photodirectory = '/var/www/html/'
 windowwidth = 1024
 windowheight = 768
 camera = Gphoto()
-switch = RCSwitch(2352753, "iSHUTDOWN", 2352754)
+switch = RCSwitch(2352753, 2352754, "NOT_IMPLEMENTED")
 ##########
 filesystemFolder = RealFolder(photodirectory)
 photofolder = Photofolder(filesystemFolder)
