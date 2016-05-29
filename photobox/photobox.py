@@ -4,8 +4,7 @@ from photofolder import Photofolder
 from folder import RealFolder
 from gphotocamera import Gphoto
 from main import Photobox
-from switch import KeyboardSwitch
-# from rcswitch import RCSwitch
+from rcswitch import RCSwitch
 
 ##########
 # config #
@@ -14,8 +13,7 @@ photodirectory = '/var/www/html/'
 windowwidth = 1024
 windowheight = 768
 camera = Gphoto()
-# switch = RCSwitch(iTRIGGER", iSHUTDOWN, iEXIT)
-switch = KeyboardSwitch()
+switch = RCSwitch(2352753, "iSHUTDOWN", 2352754)
 ##########
 filesystemFolder = RealFolder(photodirectory)
 photofolder = Photofolder(filesystemFolder)

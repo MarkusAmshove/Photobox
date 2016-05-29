@@ -35,4 +35,5 @@ class Photoslideshow():
         return time.localtime().tm_sec
 
     def reset_timer(self):
-        lastchange = self.get_seconds()
+        self.lastchange = self.get_seconds()
+        self.shownextphoto()

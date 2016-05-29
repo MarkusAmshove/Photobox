@@ -20,6 +20,7 @@ class Photobox():
 
     def start(self):
         slideshow = Photoslideshow(self)
+        self.slideshow = slideshow
         while True:
             self.clearscreen()
             slideshow.shownextphoto()
@@ -70,14 +71,6 @@ class Photobox():
         if switchstate == SwitchState.TRIGGER:
             self.takenewphoto()
             self.slideshow.reset_timer()
-
-        # events = pygame.event.get()
-        # if len(events) == 0:
-        #     return
-        # event = events[0]
-        # if event.type == pygame.KEYDOWN:
-        #     self.handlekeyevent(event.key)
-        # pygame.event.clear()
 
     def takenewphoto(self):
         start = time.clock()
