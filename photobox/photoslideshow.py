@@ -1,6 +1,7 @@
 import random
 import time
 
+SLIDE_TIME = 7
 
 class Photoslideshow():
     def __init__(self, photobox):
@@ -11,7 +12,7 @@ class Photoslideshow():
 
     def shownextphoto(self):
         currentseconds = self.get_seconds()
-        endseconds = (self.lastchange + 3) % 60
+        endseconds = (self.lastchange + SLIDE_TIME) % 60
         if currentseconds != endseconds:
             return
         self.lastchange = self.get_seconds()
