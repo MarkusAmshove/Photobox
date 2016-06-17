@@ -42,11 +42,16 @@ class Photobox():
                 exit()
 
     def showphoto(self, path):
-        self.clearscreen()
-        photo = pygame.image.load(path)
-        photo = pygame.transform.scale(photo, self.windowsize)
-        self.screen.blit(photo, (0, 0))
-        self.updatescreen()
+        try:
+            self.clearscreen()
+            photo = pygame.image.load(path)
+            photo = pygame.transform.scale(photo, self.windowsize)
+            self.screen.blit(photo, (0, 0))
+            self.updatescreen()
+            # if the camera has an error like loss of focus,
+            # then no image was taken
+        except:
+            pass
 
     def updatescreen(self):
         pygame.display.flip()
