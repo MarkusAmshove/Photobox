@@ -19,7 +19,7 @@ class Photobox():
         self.camera = camera
         self.switch = switch
         self.countdowntime = 3
-        self.lastphototaken = datetime.now()
+        self.lastphototaken = datetime.datetime.now()
         pygame.mouse.set_visible(0)
 
     def start(self):
@@ -72,8 +72,8 @@ class Photobox():
             exit(0)
         if switchstate == SwitchState.EXIT:
             exit(0)
-        if switchstate == SwitchState.TRIGGER:
-            if self.newPhotoAllowed:
+        if self.newPhotoAllowed:
+            if switchstate == SwitchState.TRIGGER:
                 self.takenewphoto()
                 self.slideshow.reset_timer()
 
