@@ -73,19 +73,10 @@ class Photobox():
             self.slideshow.reset_timer()
 
     def takenewphoto(self):
-        start = time.clock()
         self.showcountdown(3)
-        stop = time.clock()
-        print("Showing Countdown took " + str(stop - start) + " seconds")
         self.showtext("Cheese!", 400)
-        start = time.clock()
         nextphotophath = self.photofolder.getnextfilename_fullpath()
-        stop = time.clock()
-        print("Getting next filepath took " + str(stop - start) + " seconds")
-        start = time.clock()
         photoTaken = self.camera.takephoto(nextphotophath)
-        stop = time.clock()
-        print("Taking the photo took " + str(stop - start) + " seconds")
         if photoTaken:
             self.showphoto(nextphotophath)
 
