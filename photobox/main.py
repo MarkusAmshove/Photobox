@@ -1,5 +1,6 @@
 import pygame
 import time
+import datetime
 import os
 import Colors
 import SwitchState
@@ -12,11 +13,13 @@ class Photobox():
         pygame.init()
         self.windowsize = windowsize
         self.photofolder = photofolder
-        self.screen = pygame.display.set_mode(self.windowsize, pygame.FULLSCREEN)
+        self.screen = pygame.display.set_mode(
+            self.windowsize, pygame.FULLSCREEN)
         self.clock = pygame.time.Clock()
         self.camera = camera
         self.switch = switch
         self.countdowntime = 3
+        self.lastphototaken = datetime.now()
         pygame.mouse.set_visible(0)
 
     def start(self):
@@ -70,8 +73,17 @@ class Photobox():
         if switchstate == SwitchState.EXIT:
             exit(0)
         if switchstate == SwitchState.TRIGGER:
-            self.takenewphoto()
-            self.slideshow.reset_timer()
+            if self.newPhotoAllowed:
+                self.takenewphoto()
+                self.slideshow.reset_timer()
+
+    def newPhotoAllowed(self):
+        nextphotoallowed = (self.lastphototaken +
+                            datetime.timedelta(0, self.countdowntime + 2))
+        timenow = datetime.datetime.now()
+        if timenow > nextphotoallowed:
+            return True
+        return False
 
     def takenewphoto(self):
         self.showcountdown(self.countdowntime)
@@ -80,6 +92,7 @@ class Photobox():
         photoTaken = self.camera.takephoto(nextphotophath)
         if photoTaken:
             self.showphoto(nextphotophath)
+            self.lastphototaken = datetime.datetime.now()
 
     def showcountdown(self, upperbound):
         for i in range(upperbound, 0, -1):
