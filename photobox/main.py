@@ -80,6 +80,7 @@ class Photobox():
             exit(0)
         if self.newPhotoAllowed:
             if switchstate == SwitchState.TRIGGER:
+                self.lastphototaken = datetime.datetime.now()
                 self.takenewphoto()
                 self.slideshow.reset_timer()
 
@@ -99,7 +100,6 @@ class Photobox():
         photoTaken = self.camera.takephoto(nextphotophath)
         if photoTaken:
             self.showphoto(nextphotophath)
-            self.lastphototaken = datetime.datetime.now()
 
     def showcountdown(self, upperbound):
         for i in range(upperbound, 0, -1):
