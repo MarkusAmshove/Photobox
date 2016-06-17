@@ -16,6 +16,7 @@ class Photobox():
         self.clock = pygame.time.Clock()
         self.camera = camera
         self.switch = switch
+        self.countdowntime = 3
         pygame.mouse.set_visible(0)
 
     def start(self):
@@ -73,8 +74,8 @@ class Photobox():
             self.slideshow.reset_timer()
 
     def takenewphoto(self):
-        self.showcountdown(3)
-        self.showtext("Cheese!", 400)
+        self.showcountdown(self.countdowntime)
+        self.showtext("Cheese!", 300)
         nextphotophath = self.photofolder.getnextfilename_fullpath()
         photoTaken = self.camera.takephoto(nextphotophath)
         if photoTaken:
