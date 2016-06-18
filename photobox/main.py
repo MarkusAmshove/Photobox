@@ -72,7 +72,7 @@ class Photobox():
 
     def handleevents(self):
         switchstate = self.switch.get_switch_state()
-        print("%d Switchstate is %s" % (datetime.datetime.now.second, switchstate))
+        print("%d Switchstate is %s" % (datetime.datetime.now().second, switchstate))
         if switchstate == SwitchState.SHUTDOWN:
             os.system("sudo shutdown now -h")
             exit(0)
