@@ -27,10 +27,14 @@ class Photobox():
         slideshow = Photoslideshow(self)
         self.slideshow = slideshow
         while True:
-            self.clearscreen()
-            slideshow.shownextphoto()
-            self.handleevents()
-            self.exit_if_needed()
+            # don't crash the program if an error happens
+            try:
+                self.clearscreen()
+                slideshow.shownextphoto()
+                self.handleevents()
+                self.exit_if_needed()
+            except:
+                pass
 
     def exit_if_needed(self):
         events = pygame.event.get()
@@ -43,16 +47,11 @@ class Photobox():
                 exit()
 
     def showphoto(self, path):
-        try:
-            self.clearscreen()
-            photo = pygame.image.load(path)
-            photo = pygame.transform.scale(photo, self.windowsize)
-            self.screen.blit(photo, (0, 0))
-            self.updatescreen()
-            # if the camera has an error like loss of focus,
-            # then no image was taken
-        except:
-            pass
+        self.clearscreen()
+        photo = pygame.image.load(path)
+        photo = pygame.transform.scale(photo, self.windowsize)
+        self.screen.blit(photo, (0, 0))
+        self.updatescreen()
 
     def updatescreen(self):
         pygame.display.flip()
