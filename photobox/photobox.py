@@ -1,5 +1,3 @@
-from os.path import expanduser
-
 from photofolder import Photofolder
 from folder import RealFolder
 from gphotocamera import Gphoto
