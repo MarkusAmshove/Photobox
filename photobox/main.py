@@ -32,9 +32,9 @@ class Photobox():
                 self.clearscreen()
                 slideshow.shownextphoto()
                 self.handleevents()
-                self.exit_if_needed()
             except:
                 pass
+            self.exit_if_needed()
 
     def exit_if_needed(self):
         events = pygame.event.get()
