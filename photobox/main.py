@@ -34,7 +34,10 @@ class Photobox():
                 self.clearscreen()
                 slideshow.shownextphoto()
                 self.handleevents()
-            except:
+            except Exception as e:
+                print type(e)
+                print e.args
+                print e
                 pass
             self.exit_if_needed()
 
