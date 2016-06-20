@@ -23,6 +23,10 @@ class Folder():
         filename, fileextension = self.getfileinfo(thefile)
         return filename
 
+    def getfiles_fullpath(self):
+        files = self.getfiles()
+        return map(lambda it: os.path.join(self.getpath(), it), files)
+
 
 class RealFolder(Folder):
     def getfiles(self):
