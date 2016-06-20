@@ -4,12 +4,13 @@ import datetime
 import os
 import Colors
 import SwitchState
+import random
 from photoslideshow import Photoslideshow
 
 
 class Photobox():
 
-    def __init__(self, windowsize, photofolder, camera, switch):
+    def __init__(self, windowsize, photofolder, camera, switch, cheesepicfolder):
         pygame.init()
         self.windowsize = windowsize
         self.photofolder = photofolder
@@ -21,6 +22,7 @@ class Photobox():
         self.countdowntime = 3
         self.estimatedtriggertime = 2
         self.lastphototaken = datetime.datetime.now()
+        self.cheesepicfolder = cheesepicfolder
         pygame.mouse.set_visible(0)
 
     def start(self):
@@ -94,7 +96,13 @@ class Photobox():
 
     def takenewphoto(self):
         self.showcountdown(self.countdowntime)
-        self.showtext("Cheese!", 300)
+        randomcheesefile = self.cheesepicfolder.getrandomphoto()
+        randomnumber = random.randint(0, 1021)
+        if randomnumber % 2 == 0:
+            self.showphoto(randomcheesefile)
+        else:
+            self.showtext("Cheese!", 300)
+
         nextphotophath = self.photofolder.getnextfilename_fullpath()
         photoTaken = self.camera.takephoto(nextphotophath)
         if photoTaken:
