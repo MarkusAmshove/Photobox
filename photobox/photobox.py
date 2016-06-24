@@ -8,7 +8,7 @@ from rcswitch import RCSwitch
 ##########
 # config #
 ##########
-photodirectory = '/var/www/html/'
+photodirectory = '/var/www/html/fotos/'
 cheesepicpath = '/home/pi/cheesepics/'
 windowwidth = 1024
 windowheight = 768
