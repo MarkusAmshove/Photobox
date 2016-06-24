@@ -89,7 +89,7 @@ class Photobox():
                 self.slideshow.reset_timer()
 
     def newPhotoAllowed(self):
-        secondsdelta = self.countdowntime + self.estimatedtriggertime + 3
+        secondsdelta = self.countdowntime + self.estimatedtriggertime + 5
         nextphotoallowed = (self.lastphototaken +
                             datetime.timedelta(0, secondsdelta))
         timenow = datetime.datetime.now()
