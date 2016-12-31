@@ -50,6 +50,10 @@ class Photobox():
             key = event.key
             if key == pygame.K_ESCAPE:
                 exit()
+            if key == pygame.K_RETURN:
+                self.lastphototaken = datetime.datetime.now()
+                self.takenewphoto()
+                self.slideshow.reset_timer()
 
     def showphoto(self, path):
         self.clearscreen()
